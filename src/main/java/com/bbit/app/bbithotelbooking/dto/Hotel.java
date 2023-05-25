@@ -5,7 +5,10 @@ import lombok.Data;
 @Data
 public class Hotel {
 	
-	private String name;
-	private String city;
-
+    private String hotelName;
+    private String address;
+    private String city;
+    private String country;
+    
+    
 }

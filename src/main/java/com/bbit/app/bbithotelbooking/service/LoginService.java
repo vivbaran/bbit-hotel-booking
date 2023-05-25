@@ -20,11 +20,23 @@ public class LoginService {
 				
 		String userPassword = loginRepository.checkUserLoginPassword(user.getEmail());
 		if(userPassword.equals(user.getPassword())) {
-			return "User Logged In Successfully";
+			return "Logged In Successfully";
 		} else {
 			return "Invalid Email or Passsword";
 		}
 		
 	}
+	
+	public User getUserByEmail(String email) {
+	    return loginRepository.getUserByEmail(email);
+	}
+	
+	 public void updateUser(User user) {
+	        loginRepository.updateUser(user);
+	    }
+	 
+	 public void deleteUserByEmail(String email) {
+		    loginRepository.deleteUserByEmail(email);
+		}
 
 }
