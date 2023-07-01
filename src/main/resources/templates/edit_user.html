@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Management System</title>
+</head>
+<section>
+<br>
+	<div class = "container">
+		<div class = "row">
+			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class = "text-center"> Update User </h1>
+				<div class = "card-body">
+					<form th:action="@{/updateUser/{email} (email=${user.email})}" th:object = "${user}" method="POST">
+						<div class ="form-group">
+							<label> User First Name </label>
+							<input
+							type = "text"
+							name = "firstName"
+							th:field = "*{firstName}"
+							class = "form-control"
+							placeholder="Enter User First Name" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> User Last Name </label>
+							<input
+							type = "text"
+							name = "lastName"
+							th:field = "*{lastName}"
+							class = "form-control"
+							placeholder="Enter User Last Name" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> User Mobile No. </label>
+							<input
+							type = "text"
+							name = "mobileNo"
+							th:field = "*{mobileNo}"
+							class = "form-control"
+							placeholder="Enter User Mobile No." 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> User Role </label>
+							<input
+							type = "text"
+							name = "role"
+							th:field = "*{role}"
+							class = "form-control"
+							placeholder="Enter User Role" 
+							/>
+						</div>
+						
+						<div class = "box-footer">
+							<button type="submit" class = "btn btn-primary">
+								Submit
+							</button>
+						</div>
+					</form>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</html>
