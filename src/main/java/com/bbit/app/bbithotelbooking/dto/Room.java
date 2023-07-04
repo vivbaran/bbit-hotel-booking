@@ -7,16 +7,18 @@ import lombok.NoArgsConstructor;
 @Data
 public class Room {
 	
-	public Room(int id, int number, String type, int price) {
+	public Room(int id, int number, String type, int price, int hotelId) {
 		super();
 		this.id = id;
 		this.number = number;
 		this.type = type;
 		this.price = price;
+		this.hotelId = hotelId;
 	}
-	private int id;
-	private int number;
-	private String type;
-	private int price;
-	private int hotelId;
+	public int id;
+	public int number;
+	public String type;
+	public int price;
+	public int hotelId;
+	public String status;
 }

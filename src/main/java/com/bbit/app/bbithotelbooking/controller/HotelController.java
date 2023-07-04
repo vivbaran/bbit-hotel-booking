@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.bbit.app.bbithotelbooking.dto.Hotel;
-import com.bbit.app.bbithotelbooking.dto.Room;
 import com.bbit.app.bbithotelbooking.service.HotelService;
 import com.bbit.app.bbithotelbooking.service.RoomService;
 
@@ -80,23 +79,6 @@ public class HotelController {
 
 		hotelService.deleteHotel(id);
 		return "redirect:/user/hotels";
-	}
-	
-	@GetMapping("/user/hotel/addRoom/new")
-	public String createHotelRoomForm(Model model) {
-
-		Room room = new Room();
-		model.addAttribute("room", room);
-		return "create_room";
-	}
-	
-	@PostMapping("/user/hotel/addRoom/{id}")
-	public String createHotelRoom(@PathVariable int hotelId, @ModelAttribute Room room) {
-		
-		roomService.createRoomInHotel(hotelId, room);
-
-
-		return "redirect:/user/hotelDetails";
 	}
 
 }

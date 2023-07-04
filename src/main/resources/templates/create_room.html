@@ -11,7 +11,7 @@
 			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
 				<h1 class = "text-center"> Add New Room In Hotel </h1>
 				<div class="card-body">
-							<form action="/" method="post">
+							<form th:action="@{/user/hotel/addRoom/{hotelId} (hotelId=${room.hotelId})}" th:object = "${room}" method="POST">
 								<div class="mb-3">
 									<label>Enter Number</label> <input type="text"
 										name="number" class="form-control">

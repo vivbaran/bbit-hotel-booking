@@ -3,6 +3,7 @@ package com.bbit.app.bbithotelbooking.service;
 import java.util.List;
 
 import com.bbit.app.bbithotelbooking.dto.Room;
+import com.bbit.app.bbithotelbooking.entity.RoomEntity;
 
 public interface RoomService {
 
@@ -12,7 +13,7 @@ public interface RoomService {
 
 	public List<Room> getAllRoomsByHotelId(int hotelId);
 
-	public void updateRoom(int roomId);
+	public RoomEntity updateRoom(int roomId, Room room);
 
 	public void deleteRoom(int roomId);
 

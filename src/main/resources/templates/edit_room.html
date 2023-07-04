@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Management System</title>
+</head>
+<section>
+<br>
+	<div class = "container">
+		<div class = "row">
+			<div class ="col-lg-6 col-md-6 col-sm-6 Room justify-content-center card">
+				<h1 class = "text-center"> Update Room </h1>
+				<div class = "card-body">
+					<form th:action="@{/updateRoom/{id} (id=${room.id})}" th:object = "${room}" method="POST">
+						<div class ="form-group">
+							<label> Room Number </label>
+							<input
+							type = "text"
+							name = "number"
+							th:field = "*{number}"
+							class = "form-control"
+							placeholder="Enter Number" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Room Type </label>
+							<input
+							type = "text"
+							name = "type"
+							th:field = "*{type}"
+							class = "form-control"
+							placeholder="Enter Type" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Room Price </label>
+							<input
+							type = "text"
+							name = "price"
+							th:field = "*{price}"
+							class = "form-control"
+							placeholder="Enter Price" 
+							/>
+						</div>
+						
+						<div class = "box-footer">
+							<button type="submit" class = "btn btn-primary">
+								Submit
+							</button>
+						</div>
+					</form>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</html>

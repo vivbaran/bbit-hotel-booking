@@ -85,7 +85,9 @@ public class HotelServiceImpl implements HotelService {
 			Hotel hotel = new Hotel(hotelEntity.getId(), hotelEntity.getName(), hotelEntity.getAddress(), hotelEntity.getContactNo());
 			List<RoomEntity> roomEntities = roomRepository.getByHotelId(id);
 			for(RoomEntity roomEntity : roomEntities) {
-				rooms.add(new Room(roomEntity.getId(), roomEntity.getNumber(), roomEntity.getType(), roomEntity.getPrice()));
+				Room room = new Room(roomEntity.getId(), roomEntity.getNumber(), roomEntity.getType(), roomEntity.getPrice(), roomEntity.getHotelId());
+				room.setStatus("Available");
+				rooms.add(room);
 			}
 			hotel.setRooms(rooms);
 			return hotel;

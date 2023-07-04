@@ -20,7 +20,7 @@ public class Hotel {
     private String name;
     private String address;
     private String contactNo;
-    private List<Room> rooms;
+    public List<Room> rooms;
     
     
 }

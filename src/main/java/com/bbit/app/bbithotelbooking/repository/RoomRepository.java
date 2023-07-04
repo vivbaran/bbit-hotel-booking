@@ -12,4 +12,6 @@ public interface RoomRepository extends JpaRepository<RoomEntity, Integer>{
 
 	public void deleteById(Integer roomId);
 	
+	public RoomEntity getRoomById(Integer id);
+	
 }

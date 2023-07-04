@@ -25,8 +25,8 @@ public class RoomServiceImpl implements RoomService {
 
 	@Override
 	public Room getRoomById(int roomId) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		RoomEntity roomEntity =  roomRepository.getRoomById(roomId);
+		return new Room(roomEntity.getId(), roomEntity.getNumber(), roomEntity.getType(), roomEntity.getPrice(), roomEntity.getHotelId());	
 	}
 
 	@Override
@@ -36,14 +36,17 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 	@Override
-	public void updateRoom(int roomId) {
-		// TODO Auto-generated method stub
+	public RoomEntity updateRoom(int roomId, Room room) {
+		RoomEntity existingRoom = roomRepository.getRoomById(roomId);
+		existingRoom.setType(room.getType());
+		existingRoom.setPrice(room.getPrice());
 
+		return roomRepository.saveAndFlush(existingRoom);
 	}
 
 	@Override
 	public void deleteRoom(int roomId) {
-		// TODO Auto-generated method stub
+		roomRepository.deleteById(roomId);
 
 	}
 
