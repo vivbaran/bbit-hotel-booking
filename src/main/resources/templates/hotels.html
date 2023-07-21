@@ -20,6 +20,8 @@
 			<thead class = "table-dark">
 				<tr>
 					<th> Hotel Name</th>
+					<th> Country</th>
+					<th> City</th>
 					<th> Hotel Address</th>
 					<th> Actions </th>
 				</tr>
@@ -28,6 +30,8 @@
 			<tbody>
 				<tr th:each = "hotel: ${hotels}">
 					<td th:text = "${hotel.name}"></td>
+					<td th:text= "${hotel.country}"></td>
+					<td th:text= "${hotel.city}"></td>
 					<td th:text = "${hotel.address}"></td>
 					<td> 
 					    <a th:href = "@{/user/viewHotel/{id}(id=${hotel.id})}"

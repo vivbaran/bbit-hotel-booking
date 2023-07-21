@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<title>User Management System</title>
+</head>
+<section>
+<br>
+	<div class = "container">
+		<div class = "row">
+			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class = "text-center"> Create Booking </h1>
+				<div class="card-body">
+					<form th:action="@{/user/bookRoom/createBooking/{roomId}(roomId=${booking.roomId})}"  method="POST">
+								<div class="mb-3">
+									<label>Check-In Date</label> <input type="text"
+									name="checkinDate" class="form-control" required>
+								</div>
+								<div class="mb-3">
+									<label>Check-Out Date</label> <input type="text"
+									name="checkoutDate" class="form-control" required>
+								</div>
+								<div class="mb-3">
+									<label>Enter First Name</label> <input type="text"
+										name="firstName" class="form-control" required>
+								</div>
+								<div class="mb-3">
+									<label>Enter Last Name</label> <input type="text"
+										name="lastName" class="form-control" required>
+								</div>
+								<div class="mb-3">
+									<label>Enter Email</label> <input type="text" name="email"
+										class="form-control" required>
+								</div>
+								<button class="btn btn-primary col-md-12">Submit</button>
+							</form>
+						</div>
+			</div>
+		</div>
+	</div>
+</section>
+</html>

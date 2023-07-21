@@ -65,6 +65,7 @@ public class RoomController {
 		roomService.deleteRoom(id);
 		return getHotelDetails(deletedRoom.getHotelId(), model);
 	}
+
 	
 	private String getHotelDetails(int hotelId, Model model) throws Exception {
 		List<Hotel> hotels = new ArrayList<>();

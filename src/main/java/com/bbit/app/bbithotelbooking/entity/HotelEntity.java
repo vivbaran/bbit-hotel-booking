@@ -18,9 +18,11 @@ import lombok.NoArgsConstructor;
 @Table(name = "HOTEL")
 public class HotelEntity {
 
-	public HotelEntity(String name, String address, String contactNo)  {
+	public HotelEntity(String name, String country, String city, String address, String contactNo)  {
 		super();
 		this.name = name;
+		this.country = country;
+		this.city = city;
 		this.address = address;
 		this.contactNo = contactNo;
 	}
@@ -32,6 +34,12 @@ public class HotelEntity {
 
 	@Column(name = "NAME")
 	private String name;
+	
+	@Column(name = "COUNTRY")
+	private String country;
+	
+	@Column(name = "CITY")
+	private String city;
 
 	@Column(name = "ADDRESS")
 	private String address;

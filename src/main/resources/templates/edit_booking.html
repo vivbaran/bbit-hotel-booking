@@ -10,64 +10,50 @@
 	<div class = "container">
 		<div class = "row">
 			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-				<h1 class = "text-center"> Update Hotel </h1>
+				<h1 class = "text-center"> Update Booking </h1>
 				<div class = "card-body">
-					<form th:action="@{/updateHotel/{id} (id=${hotel.id})}" th:object = "${hotel}" method="POST">
+					<form th:action="@{/updateBooking/{id} (id=${booking.id})}" th:object = "${booking}" method="POST">
 						<div class ="form-group">
-							<label> Hotel Name </label>
+							<label> Check-In Date </label>
 							<input
 							type = "text"
-							name = "name"
-							th:field = "*{name}"
+							th:field = "*{checkinDate}"
 							class = "form-control"
-							placeholder="Enter Name" 
+							placeholder="Enter Check-In Date" 
 							/>
 						</div>
 						
 						<div class ="form-group">
-							<label> Country </label>
+							<label> Check-Out Date </label>
 							<input
 							type = "text"
-							name = "country"
-							th:field = "*{country}"
+							th:field = "*{checkoutDate}"
 							class = "form-control"
-							placeholder="Enter Country" 
+							placeholder="Enter Check-Out Date" 
 							/>
 						</div>
 						
 						<div class ="form-group">
-							<label> City </label>
+							<label> First Name </label>
 							<input
 							type = "text"
-							name = "city"
-							th:field = "*{city}"
+							name = "firstName"
+							th:field = "*{firstName}"
 							class = "form-control"
-							placeholder="Enter City" 
+							placeholder="Enter First Name" 
 							/>
 						</div>
 						
 						<div class ="form-group">
-							<label> Hotel Address </label>
+							<label> Last Name </label>
 							<input
 							type = "text"
-							name = "address"
-							th:field = "*{address}"
+							name = "lastName"
+							th:field = "*{lastName}"
 							class = "form-control"
-							placeholder="Enter Address" 
+							placeholder="Enter Last Name" 
 							/>
 						</div>
-						
-						<div class ="form-group">
-							<label> Hotel Contact No. </label>
-							<input
-							type = "text"
-							name = "contactNo"
-							th:field = "*{contactNo}"
-							class = "form-control"
-							placeholder="Enter Contact No." 
-							/>
-						</div>
-						
 						<div class = "box-footer">
 							<button type="submit" class = "btn btn-primary">
 								Submit

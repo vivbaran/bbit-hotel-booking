@@ -1,6 +1,7 @@
 
 package com.bbit.app.bbithotelbooking.controller;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,10 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bbit.app.bbithotelbooking.dto.Hotel;
+import com.bbit.app.bbithotelbooking.dto.User;
 import com.bbit.app.bbithotelbooking.service.HotelService;
 import com.bbit.app.bbithotelbooking.service.RoomService;
+import com.bbit.app.bbithotelbooking.service.UserService;
 
 @Controller
 public class HotelController {
@@ -25,6 +29,25 @@ public class HotelController {
 	@Autowired
 	RoomService roomService;
 	
+	@Autowired
+	UserService userService;
+	
+	@GetMapping("/home")
+	public String searchHotels(@RequestParam(value = "country", required = false) String country,
+	                           @RequestParam(value = "city", required = false) String city,
+	                           Model model) throws Exception {
+	    List<Hotel> hotels = hotelService.searchHotel(country, city);
+	    model.addAttribute("hotels", hotels);
+	    // Get the currently logged-in user
+	    // User user = userService.getUserByEmail(principal.getName());
+	    // model.addAttribute("user", user);
+
+	    return "home";
+	}
+
+
+	 
+	 
 	@GetMapping("/user/hotel/new")
 	public String createHotelForm(Model model) {
 
@@ -66,7 +89,6 @@ public class HotelController {
 	@GetMapping("/user/viewHotel/{id}")
 	public String viewHotel(@PathVariable int id, Model model)
 			throws Exception {
-
 		List<Hotel> hotels = new ArrayList<>();
 		hotels.add(hotelService.getHotelById(id));
 		model.addAttribute("hotelDetails", hotels);

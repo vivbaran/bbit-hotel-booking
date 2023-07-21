@@ -14,15 +14,23 @@
 							<form action="addHotel" method="post">
 								<div class="mb-3">
 									<label>Enter Name</label> <input type="text"
-										name="name" class="form-control">
+										name="name" class="form-control" required>
+								</div>
+								<div class="mb-3">
+									<label>Enter Country</label> <input type="text"
+										name="country" class="form-control" required>
+								</div>
+								<div class="mb-3">
+									<label>Enter City</label> <input type="text"
+										name="city" class="form-control" required>
 								</div>
 								<div class="mb-3">
 									<label>Enter Address</label> <input type="text"
-										name="address" class="form-control">
+										name="address" class="form-control" required>
 								</div>
 								<div class="mb-3">
 									<label>Enter Contact No.</label> <input type="text"
-										name="contactNo" class="form-control">
+										name="contactNo" class="form-control" required>
 								</div>
 								<button class="btn btn-primary col-md-12">Submit</button>
 							</form>

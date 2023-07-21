@@ -17,7 +17,7 @@ public interface HotelService {
 	public void updateHotel(int id, Hotel user);
 	
 	public void deleteHotel(int id);
-	
-	public void searchHotel();
 
+	public List<Hotel> searchHotel(String country, String city);
+	
 }

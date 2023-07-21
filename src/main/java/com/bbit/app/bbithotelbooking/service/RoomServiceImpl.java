@@ -1,5 +1,6 @@
 package com.bbit.app.bbithotelbooking.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,14 +35,13 @@ public class RoomServiceImpl implements RoomService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
 	public RoomEntity updateRoom(int roomId, Room room) {
-		RoomEntity existingRoom = roomRepository.getRoomById(roomId);
-		existingRoom.setType(room.getType());
-		existingRoom.setPrice(room.getPrice());
-
-		return roomRepository.saveAndFlush(existingRoom);
+	    RoomEntity existingRoom = roomRepository.getRoomById(roomId);
+	    existingRoom.setType(room.getType());
+	    existingRoom.setPrice(room.getPrice());	    
+	    return roomRepository.saveAndFlush(existingRoom);
 	}
 
 	@Override

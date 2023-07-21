@@ -14,7 +14,7 @@
 		<div class="row">
 			<div class="col-lg-3">
 				<a
-					th:href="@{/user/hotel/addRoom/new/{id}(id=${hotelDetails[0].id})}"
+					th:href="@{/user/viewHotel/{id}(id=${hotelId})}"
 					class="btn btn-primary btn-sm mb-3"> Add Room</a>
 			</div>
 		</div>
@@ -22,6 +22,8 @@
 			<thead class="table-dark">
 				<tr>
 					<th>Hotel Name</th>
+					<th>Country</th>
+					<th>City</th>
 					<th>Hotel Address</th>
 					<th>Hotel Contact No.</th>
 				</tr>
@@ -30,6 +32,8 @@
 			<tbody>
 				<tr th:each="hotel: ${hotelDetails}">
 					<td th:text="${hotel.name}"></td>
+					<td th:text="${hotel.country}"></td>
+					<td th:text="${hotel.city}"></td>
 					<td th:text="${hotel.address}"></td>
 					<td th:text="${hotel.contactNo}"></td>
 				</tr>
@@ -55,9 +59,13 @@
 						<td th:text="${room.type}"></td>
 						<td th:text="${room.price}"></td>
 						<td th:text="${room.status}"></td>
-						<td><a
+						<td> <a 
+						th:href="@{/user/bookRoom/{id}(id=${room.id})}" class="btn btn-success"
+                       th:if="${room.status == 'Available'}">Book</a> <a
+                        
 							th:href="@{/user/updateRoom/{id}(id=${room.id})}"
 							class="btn btn-primary">Update</a> <a
+							
 							th:href="@{/deleteRoom/{id}(id=${room.id})}"
 							class="btn btn-danger">Delete</a></td>
 					</tr>
