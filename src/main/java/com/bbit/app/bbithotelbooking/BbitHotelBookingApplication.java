@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("com.bbit.app.*")
 @SpringBootApplication
 public class BbitHotelBookingApplication {
-    //Updated
+    
 	public static void main(String[] args) {
 		SpringApplication.run(BbitHotelBookingApplication.class, args);
 	}
